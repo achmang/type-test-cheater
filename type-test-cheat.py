@@ -16,5 +16,7 @@ driver = Chrome()
 driver.get('https://10fastfingers.com/advanced-typing-test/english')
 
 while(True):
+    # Get the word that needs to be typed    
     text = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "span.highlight"))).get_attribute("innerText")
+    # Slap it into input     
     WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "input#inputfield.form-control"))).send_keys(text+" ")
